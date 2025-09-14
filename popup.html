@@ -31,11 +31,85 @@
             margin: 0;
         }
         
+        .toggle-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #2d2d2d;
+            border-radius: 8px;
+        }
+        
+        .toggle-label {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ff4757;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #00ff88;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        .status {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+        
+        .status.on {
+            color: #00ff88;
+        }
+        
+        .status.off {
+            color: #ff4757;
+        }
+        
         .controls {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 15px;
         }
         
         button {
@@ -68,6 +142,7 @@
             border: 1px solid #333;
             border-radius: 6px;
             transition: all 0.3s ease;
+            margin-bottom: 15px;
         }
         
         .github-link:hover {
@@ -75,8 +150,16 @@
             color: white;
         }
         
+        .info {
+            background: #2d2d2d;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
         .footer {
-            margin-top: 20px;
             text-align: center;
             font-size: 10px;
             opacity: 0.6;
@@ -91,11 +174,21 @@
         <p>Автоматизация подтверждения просмотра</p>
     </div>
     
-    <div class="controls">
-        <button id="testAlertBtn">Тестовый алёрт</button>
+    <div class="toggle-section">
+        <span class="toggle-label">Авто-фикс:</span>
+        <label class="switch">
+            <input type="checkbox" id="toggleSwitch" checked>
+            <span class="slider"></span>
+        </label>
     </div>
     
-    <a href="https://github.com/your-username/chaotic-deployed-mts-link-f-cker" 
+    <div class="status on" id="statusText">● Активен</div>
+    
+    <div class="info">
+        Функции: авто-клик "Подтверждаю", "Закрыть", перехват запросов
+    </div>
+    
+    <a href="https://github.com/Zawarudo1001/chaotic-deployed-mts-link-f-cker" 
        target="_blank" class="github-link">
         📦 GitHub репозиторий
     </a>
