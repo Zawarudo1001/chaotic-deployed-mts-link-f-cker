@@ -10,5 +10,8 @@
       "js": ["main.js"],
       "matches": ["https://*.mts-link.ru/*"]
     }
-  ]
+  ],
+  "background": {
+		"service_worker": "background.js"
+	}
 }
