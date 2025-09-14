@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "chaotic-deployed-mts-link-f-cker",
   "version": "0.1",
-  "description": "Автоматически нажимает кнопку для отметки и сайт будет всегда думать что вы смотрите трансляцию",
+  "description": "Автоприсутствие + контроль активной вкладки",
   "icons": {
     "16": "icons/icon-16.jpg",
     "32": "icons/icon-32.jpg",
