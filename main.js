@@ -16,6 +16,13 @@
             button.click();
             console.log('Activity button clicked');
         }
+
+        let closeButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Закрыть');
+        if (closeButton) {
+            closeButton.click();
+            console.log('Close button clicked');
+        }
+
         let watermark = document.querySelector('.WatermarkLogo__text___zmRdC');
         if (watermark) watermark.textContent = 'ChaoticDeployed'
     }, 5000);
