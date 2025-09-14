@@ -11,19 +11,16 @@
     };
 
     setInterval(function () {
-        let button =  Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Подтверждаю');
-        if (button) {
-            button.click();
+        let acceptButton =  Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Подтверждаю');
+        if (acceptButton) {
+            acceptButton.click();
             console.log('Activity button clicked');
         }
 
-        let closeButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Закрыть');
-        if (closeButton) {
-            closeButton.click();
+        let closetButton =  Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Закрыть');
+        if (closetButton) {
+            closetButton.click();
             console.log('Close button clicked');
         }
-
-        let watermark = document.querySelector('.WatermarkLogo__text___zmRdC');
-        if (watermark) watermark.textContent = 'ChaoticDeployed'
     }, 5000);
 })();
