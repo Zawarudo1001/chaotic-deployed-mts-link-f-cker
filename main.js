@@ -17,6 +17,6 @@
             console.log('Activity button clicked');
         }
         let watermark = document.querySelector('.WatermarkLogo__text___zmRdC');
-        if (watermark) watermark.textContent = 'Платформа 9¾'
+        if (watermark) watermark.textContent = 'ChaoticDeployed'
     }, 5000);
 })();
