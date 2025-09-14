@@ -11,6 +11,11 @@
       "matches": ["https://*.mts-link.ru/*"]
     }
   ],
+  "permissions": [
+		"activeTab",
+		"scripting",
+    "storage"
+	],
   "background": {
 		"service_worker": "background.js"
 	}
