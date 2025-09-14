@@ -2,29 +2,37 @@
   "manifest_version": 3,
   "name": "chaotic-deployed-mts-link-f-cker",
   "version": "0.1",
-  "description": "Автоматически наживает кнопку для отметки и сайт будет всегда будет думать что вы смотрите трансляцию",
+  "description": "Автоматически нажимает кнопку для отметки и сайт будет всегда думать что вы смотрите трансляцию",
+  "icons": {
+    "16": "icons/icon-16.jpg",
+    "32": "icons/icon-32.jpg",
+    "48": "icons/icon-48.jpg",
+    "128": "icons/icon-128.jpg"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MTS Link Fixer",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png"
+    }
+  },
+  
   "content_scripts": [
     {
       "world": "MAIN",
       "run_at": "document_start",
-      "js": ["main.js"],
+      "js": ["content.js"],
       "matches": ["https://*.mts-link.ru/*"]
     }
   ],
   "permissions": [
 		"activeTab",
 		"scripting",
-    "storage",
-    "tabs",
+        "storage",
+        "tabs",
 		"background"
 	],
-  "background": {
-		"service_worker": "background.js"
-	},
-  "icons": {
-    "16": "icons/icon-16.jpg",
-    "32": "icons/icon-32.jpg",
-    "48": "icons/icon-48.jpg",
-    "128": "icons/icon-128.jpg"
-  }
+
 }

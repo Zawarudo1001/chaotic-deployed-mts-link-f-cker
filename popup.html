@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+        
+        .header h1 {
+            font-size: 18px;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        
+        .header p {
+            font-size: 12px;
+            opacity: 0.8;
+            margin: 0;
+        }
+        
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            background: #007bff;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .github-link {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .github-link:hover {
+            background: #007bff;
+            color: white;
+        }
+        
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 10px;
+            opacity: 0.6;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MTS Link Fixer</h1>
+        <p>Автоматизация подтверждения просмотра</p>
+    </div>
+    
+    <div class="controls">
+        <button id="testAlertBtn">Тестовый алёрт</button>
+    </div>
+    
+    <a href="https://github.com/your-username/chaotic-deployed-mts-link-f-cker" 
+       target="_blank" class="github-link">
+        📦 GitHub репозиторий
+    </a>
+    
+    <div class="footer">
+        v0.1 • chaotic-deployed
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
