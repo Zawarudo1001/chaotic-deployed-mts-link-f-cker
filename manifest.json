@@ -14,7 +14,9 @@
   "permissions": [
 		"activeTab",
 		"scripting",
-    "storage"
+    "storage",
+    "tabs",
+		"background"
 	],
   "background": {
 		"service_worker": "background.js"
