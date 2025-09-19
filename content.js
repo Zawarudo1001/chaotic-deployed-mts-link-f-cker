@@ -9,6 +9,7 @@
     // Включаем перехват fetch
     window.fetch = function(req, init) {
         if (typeof req === 'string' && req.includes('/setUserInvolvementStatus')) {
+            console.log('MTS Fixer: Перехвачен запрос активности');
             init = init || {};
             init.body = 'isFocused=true&isSoundEnabled=true&isVideoEnabled=true';
             return originalFetch(req, init);
@@ -16,17 +17,25 @@
         return originalFetch.apply(window, arguments);
     };
 
-    // Запускаем интервал
+    // Запускаем интервал для поиска кнопок
     intervalId = setInterval(function() {
-        let acceptButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Подтверждаю');
+        // Ищем кнопку "Подтверждаю"
+        let acceptButton = Array.from(document.querySelectorAll('button')).find(button => {
+            return button.textContent && button.textContent.trim() === 'Подтверждаю';
+        });
+        
         if (acceptButton) {
             acceptButton.click();
             console.log('MTS Fixer: Кнопка "Подтверждаю" нажата');
         }
 
-        let closetButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Закрыть');
-        if (closetButton) {
-            closetButton.click();
+        // Ищем кнопку "Закрыть"
+        let closeButton = Array.from(document.querySelectorAll('button')).find(button => {
+            return button.textContent && button.textContent.trim() === 'Закрыть';
+        });
+        
+        if (closeButton) {
+            closeButton.click();
             console.log('MTS Fixer: Кнопка "Закрыть" нажата');
         }
     }, 5000);

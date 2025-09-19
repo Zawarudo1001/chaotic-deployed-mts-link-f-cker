@@ -1,35 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     const statusText = document.getElementById('statusText');
 
-    // Проверяем статус расширения
+    // Всегда показываем, что расширение активно
+    statusText.textContent = '● Расширение активно';
+    statusText.className = 'status on';
+    
+    // Проверяем, открыта ли страница MTS Link
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        if (tabs[0] && tabs[0].url.includes('mts-link.ru')) {
-            chrome.tabs.sendMessage(
-                tabs[0].id,
-                {type: 'GET_STATUS'},
-                function(response) {
-                    if (response && response.enabled !== undefined) {
-                        updateStatus(response.enabled);
-                    } else {
-                        statusText.textContent = '● Расширение активно';
-                        statusText.className = 'status on';
-                    }
-                }
-            );
-        } else {
-            statusText.textContent = '● Откройте MTS Link';
-            statusText.className = 'status on';
+        if (tabs[0]) {
+            if (tabs[0].url.includes('mts-link.ru')) {
+                statusText.textContent = '● Активно на MTS Link';
+            } else {
+                statusText.textContent = '● Откройте MTS Link';
+            }
         }
     });
-
-    // Обновление статуса
-    function updateStatus(isEnabled) {
-        if (isEnabled) {
-            statusText.textContent = '● Расширение активно';
-            statusText.className = 'status on';
-        } else {
-            statusText.textContent = '● Расширение неактивно';
-            statusText.className = 'status off';
-        }
-    }
 });
