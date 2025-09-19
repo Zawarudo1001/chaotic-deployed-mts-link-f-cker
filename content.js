@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    console.log('Hello from mts fixer');
+    console.log('MTS Fixer: Загружен');
     
     let isEnabled = true;
     let intervalId = null;
@@ -14,7 +14,8 @@
         if (enabled) {
             // Включаем перехват fetch
             window.fetch = function(req, init) {
-                if (req.includes('/setUserInvolvementStatus')) {
+                if (typeof req === 'string' && req.includes('/setUserInvolvementStatus')) {
+                    init = init || {};
                     init.body = 'isFocused=true&isSoundEnabled=true&isVideoEnabled=true';
                     return originalFetch(req, init);
                 }
@@ -27,13 +28,13 @@
                     let acceptButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Подтверждаю');
                     if (acceptButton) {
                         acceptButton.click();
-                        console.log('Activity button clicked');
+                        console.log('MTS Fixer: Кнопка "Подтверждаю" нажата');
                     }
 
                     let closetButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Закрыть');
                     if (closetButton) {
                         closetButton.click();
-                        console.log('Close button clicked');
+                        console.log('MTS Fixer: Кнопка "Закрыть" нажата');
                     }
                 }, 5000);
             }
@@ -74,8 +75,5 @@
             sendResponse({ enabled: isEnabled });
         }
     });
-
-    // Инициализация
-    console.log('MTS Fixer: Загружен');
 
 })();
