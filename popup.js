@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     statusText.textContent = '● Расширение активно';
     statusText.className = 'status on';
     
+    // Проверяем, открыта ли страница MTS Link
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         if (tabs[0]) {
             if (tabs[0].url.includes('mts-link.ru')) {
